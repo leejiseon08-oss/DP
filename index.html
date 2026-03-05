@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나의 게시판</title>
+    <style>
+        body { font-family: 'Pretendard', sans-serif; background-color: #f5f5f7; margin: 0; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 30px; }
+        .post-card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 15px; }
+        .post-title { font-size: 1.2rem; font-weight: bold; margin-bottom: 8px; color: #333; }
+        .post-date { font-size: 0.85rem; color: #888; margin-bottom: 12px; }
+        .post-content { line-height: 1.6; color: #555; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>📝 최근 게시글</h1>
+    </header>
+
+    <div id="post-list">
+        </div>
+</div>
+
+<script>
+    // 데이터 예시 (나중에 API나 DB에서 불러올 수 있습니다)
+    const posts = [
+        { title: "첫 번째 게시글", date: "2026-03-05", content: "안녕하세요! 간단한 게시판 페이지입니다." },
+        { title: "오늘의 마케팅 팁", date: "2026-03-04", content: "콘텐츠의 핵심은 타겟의 문제를 해결해 주는 것입니다." },
+        { title: "개발 프로젝트 기록", date: "2026-03-03", content: "HTML과 CSS만으로도 충분히 깔끔한 UI를 만들 수 있습니다." }
+    ];
+
+    const postList = document.getElementById('post-list');
+
+    // 데이터를 화면에 그리는 함수
+    posts.forEach(post => {
+        const article = document.createElement('div');
+        article.className = 'post-card';
+        article.innerHTML = `
+            <div class="post-title">${post.title}</div>
+            <div class="post-date">${post.date}</div>
+            <div class="post-content">${post.content}</div>
+        `;
+        postList.appendChild(article);
+    });
+</script>
+
+</body>
+</html>
